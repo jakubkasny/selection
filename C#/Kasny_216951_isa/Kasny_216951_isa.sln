@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kasny_216951_isa", "Kasny_216951_isa.csproj", "{DCD8AF33-3F84-4774-A5BF-5653A4866826}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObecneGrafy", "ObecneGrafy\ObecneGrafy\ObecneGrafy.csproj", "{87A840B3-EA0F-414F-A23B-B17B5B9E2B28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCD8AF33-3F84-4774-A5BF-5653A4866826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCD8AF33-3F84-4774-A5BF-5653A4866826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCD8AF33-3F84-4774-A5BF-5653A4866826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCD8AF33-3F84-4774-A5BF-5653A4866826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87A840B3-EA0F-414F-A23B-B17B5B9E2B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87A840B3-EA0F-414F-A23B-B17B5B9E2B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87A840B3-EA0F-414F-A23B-B17B5B9E2B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87A840B3-EA0F-414F-A23B-B17B5B9E2B28}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82A4EA63-8182-4BA0-81F3-2560A9279F16}
+	EndGlobalSection
+EndGlobal

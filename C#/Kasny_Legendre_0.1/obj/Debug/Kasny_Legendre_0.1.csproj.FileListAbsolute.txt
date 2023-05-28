@@ -1,0 +1,6 @@
+C:\Users\bubas\OneDrive\Plocha\škola\SZP\Kasny_Legendre_0.1\bin\Debug\Kasny_Legendre_0.1.exe.config
+C:\Users\bubas\OneDrive\Plocha\škola\SZP\Kasny_Legendre_0.1\bin\Debug\Kasny_Legendre_0.1.exe
+C:\Users\bubas\OneDrive\Plocha\škola\SZP\Kasny_Legendre_0.1\bin\Debug\Kasny_Legendre_0.1.pdb
+C:\Users\bubas\OneDrive\Plocha\škola\SZP\Kasny_Legendre_0.1\obj\Debug\Kasny_Legendre_0.1.csprojAssemblyReference.cache
+C:\Users\bubas\OneDrive\Plocha\škola\SZP\Kasny_Legendre_0.1\obj\Debug\Kasny_Legendre_0.1.exe
+C:\Users\bubas\OneDrive\Plocha\škola\SZP\Kasny_Legendre_0.1\obj\Debug\Kasny_Legendre_0.1.pdb
