@@ -44,7 +44,7 @@ main(
   if (argc > 1 )    
     threads_num = atoi(argv[1]+2);
   omp_set_num_threads(threads_num);
-  
+
   // variables:
   const unsigned short max_dist = 3464;
   unsigned short distance[max_dist];
@@ -63,19 +63,25 @@ main(
   
   // file data:
   const size_t bb_size_prim = 512;
+  //  const size_t bb_size_prim = 2;
   const size_t bb_size = bb_size_prim*threads_num;
   char bb_data[bb_size*24];
   short bb_arr[bb_size*3];
 
   const size_t sb_size = 128;
+  //const size_t sb_size = 2;
   char sb_data[sb_size*24];
   short sb_arr[sb_size*3];
 
-  // initialize distance and heap_distance
-  for (size_t ix = 0; ix < max_dist; ++ix){
-    distance[ix] = 0;
+  
+  // initialize heap_distance
+  for (size_t ix = 0; ix < max_dist; ix+=4){
     heap_dist[ix] = 0;
+    heap_dist[ix+1] = 0;
+    heap_dist[ix+2] = 0;
+    heap_dist[ix+3] = 0;
   }
+  
 
   // for each big block:
   for ( size_t bbi = 0; bbi < sz; bbi += bb_size){
@@ -89,6 +95,14 @@ main(
     // save bb to short[];
     dataParse(bb_data, bb_arr, bbs);
 
+    // initialize distance
+    for (size_t ix = 0; ix < max_dist; ix+=4){
+      distance[ix] = 0;
+      distance[ix+1] = 0;
+      distance[ix+2] = 0;
+      distance[ix+3] = 0;
+    }
+  
 #pragma omp parallel for default(shared) reduction(+:distance[:max_dist]) schedule(static, bb_size_prim)
     // compute big block;
     for (size_t ix = 0; ix < bbs*3; ix +=3){
@@ -96,8 +110,9 @@ main(
         float diff0 = bb_arr[ix+0] - bb_arr[jx+0];
         float diff1 = bb_arr[ix+1] - bb_arr[jx+1];
         float diff2 = bb_arr[ix+2] - bb_arr[jx+2];
-	unsigned int d = trunc(sqrtf((float)(diff0*diff0 + diff1*diff1 + diff2*diff2))*0.1f);
-	distance[d] += 1;
+	unsigned int d = (sqrtf((diff0*diff0 + diff1*diff1 + diff2*diff2))*0.1f);
+	distance[d+1] += 1;
+	//printf("ix: %i | jx: %i | dist: %i \n",ix,jx,d);
       }
     }
     
@@ -121,7 +136,7 @@ main(
       
       for (size_t ix = 0; ix < max_dist; ix+=4){
 	distance[ix] = 0;
-      	distance[ix+1] = 0;
+	distance[ix+1] = 0;
       	distance[ix+2] = 0;
       	distance[ix+3] = 0;
       }
@@ -132,8 +147,9 @@ main(
 	  float diff0 = bb_arr[ix+0] - sb_arr[jx+0];
 	  float diff1 = bb_arr[ix+1] - sb_arr[jx+1];
 	  float diff2 = bb_arr[ix+2] - sb_arr[jx+2];
-	  unsigned int d = trunc(sqrtf((float)(diff0*diff0 + diff1*diff1 + diff2*diff2))*.1f);
-	  distance[d] += 1;
+	  unsigned int d = (sqrtf((diff0*diff0 + diff1*diff1 + diff2*diff2))*.1f);
+	  distance[d+1] += 1;
+	  //printf("ix: %i | jx: %i | dist: %i \n",ix,jx,d);
 	}
       }
 
@@ -146,10 +162,16 @@ main(
       }	
     }
   }
-
-  for (size_t di = 0; di < max_dist; ++di){
-    if (heap_dist[di] != 0 )
+ 
+  for (size_t di = 0; di < max_dist; di+=4){ //max_dist
+    //    if (heap_dist[di] != 0)
       fprintf( stdout,"%.2f %i\n",di*.01f, heap_dist[di]);
+      //if (heap_dist[di+1] != 0)
+      fprintf( stdout,"%.2f %i\n",(di+1)*.01f, heap_dist[di+1]);
+      //if (heap_dist[di+2] != 0)
+      fprintf( stdout,"%.2f %i\n",(di+2)*.01f, heap_dist[di+2]);
+      //if (heap_dist[di+3] != 0)
+      fprintf( stdout,"%.2f %i\n",(di+3)*.01f, heap_dist[di+3]);
   }
   fclose(file_pointer);
   free(heap_dist);
