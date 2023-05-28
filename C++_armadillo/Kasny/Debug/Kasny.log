@@ -1,0 +1,10 @@
+﻿  Kasny.cpp
+D:\Kasa\skola\6. semestr - léto\SCP\Semestralka\Kasny\Kasny\Kasny.cpp(85,6): warning C4101: iinx: neodkazovaná lokální proměnná
+D:\Kasa\skola\6. semestr - léto\SCP\Semestralka\Kasny\Kasny\Kasny.cpp(83,7): warning C4101: exc: neodkazovaná lokální proměnná
+  dataOperator.cpp
+D:\Kasa\skola\6. semestr - léto\SCP\Semestralka\Kasny\Kasny\dataOperator.cpp(163,24): warning C4018: <: signed/unsigned – neshoda
+D:\Kasa\skola\6. semestr - léto\SCP\Semestralka\Kasny\Kasny\dataOperator.cpp(210,9): warning C4101: dh: neodkazovaná lokální proměnná
+D:\Kasa\skola\6. semestr - léto\SCP\Semestralka\Kasny\Kasny\dataOperator.cpp(336,22): warning C4018: >: signed/unsigned – neshoda
+D:\Kasa\skola\6. semestr - léto\SCP\Semestralka\Kasny\Kasny\dataOperator.cpp(364,22): warning C4018: >: signed/unsigned – neshoda
+  Generování kódu...
+  Kasny.vcxproj -> D:\Kasa\skola\6. semestr - léto\SCP\Semestralka\Kasny\Debug\Kasny.exe
